@@ -1,0 +1,181 @@
+/* Ad Soyad 20231047 */
+:root {
+  --no: 20231047;
+  --ton: 127;
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --renk-hata: #dc3545;
+  --renk-basari: #28a745;
+  --font: "Palatino Linotype", serif;
+  --bosluk-m: 1rem;
+  --kose: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body { 
+  font-family: var(--font); 
+  background-color: var(--renk-zemin);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: var(--renk-ana);
+  color: white;
+  padding: var(--bosluk-m);
+}
+
+header h1 { margin-top: 0; }
+
+nav a {
+  color: white;
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover { text-decoration: underline; }
+
+main {
+  padding: var(--bosluk-m);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Tablodan Karta Dönüşüm ve Grid */
+section.etkinlik-listesi {
+  display: grid;
+  gap: var(--bosluk-m);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  section.etkinlik-listesi { grid-template-columns: repeat(3, 1fr); }
+  section.etkinlik-listesi[data-limit="2"] { grid-template-columns: repeat(2, 1fr); }
+}
+
+article.kart {
+  background: white;
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+article h3 { margin-top: 0; color: var(--renk-ana); }
+
+article a {
+  color: var(--renk-ana);
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: auto;
+  display: inline-block;
+  padding-top: 10px;
+}
+
+/* Detay Sayfası */
+.detay-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bosluk-m);
+}
+
+@media (min-width: 768px) {
+  .detay-grid { flex-direction: row; }
+  .detay-grid img.afis { max-width: 300px; }
+}
+
+img.afis {
+  width: 100%;
+  height: auto;
+  border-radius: var(--kose);
+  object-fit: cover;
+}
+
+dl { margin-top: 0; }
+dt { font-weight: bold; color: var(--renk-ana); margin-top: 0.5rem; }
+dd { margin-left: 0; margin-bottom: 0.5rem; }
+
+/* Filtreler */
+.filtre {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  background: white;
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 768px) {
+  .filtre {
+    grid-template-columns: auto 1fr auto 1fr;
+    align-items: center;
+  }
+}
+
+/* Formlar */
+form.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 500px;
+  background: white;
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+label { font-weight: bold; display: block; }
+.zorunlu { color: var(--renk-hata); }
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+textarea { min-height: 100px; resize: vertical; }
+
+/* Hatalı alan kontrolü (JS ile sınıf eklenince veya aria-invalid=true olunca) */
+input[aria-invalid="true"], 
+select[aria-invalid="true"], 
+textarea[aria-invalid="true"] {
+  border-color: var(--renk-hata);
+}
+
+.hata-mesaji {
+  color: var(--renk-hata);
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  display: block;
+}
+
+button {
+  background-color: var(--renk-ana);
+  color: white;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+button:hover { opacity: 0.9; }
+
+.basari-kutu, .hata-kutu {
+  padding: 1rem;
+  border-radius: var(--kose);
+  margin-top: 1rem;
+  font-weight: bold;
+}
+.basari-kutu { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.basari-kutu pre { font-weight: normal; background: #f8f9fa; padding: 0.5rem; border-radius: 4px; overflow-x: auto;}
+.hata-kutu { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }

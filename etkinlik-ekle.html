@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etkinlik Ekle</title>
+  <link rel="stylesheet" href="css/20231047.css">
+  <script type="module" src="js/event-form.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Etkinlik Ekle</h1>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="etkinlikler.html">Etkinlikler</a>
+      <a href="etkinlik-ekle.html">Ekle</a>
+    </nav>
+  </header>
+  <main>
+    <p>Yıldızlı (<span class="zorunlu">*</span>) alanlar zorunludur. Bu sprintte form veri kaydetmez; sonuç aşağıda gösterilir.</p>
+    <form id="etkinlik-formu" class="form-container" novalidate>
+      <label for="ad">Etkinlik Adı <span class="zorunlu">*</span></label>
+      <input type="text" id="ad" name="ad" placeholder="Etkinlik adını girin">
+      <span class="hata-mesaji" id="ad-hata"></span>
+
+      <label for="kategori">Kategori <span class="zorunlu">*</span></label>
+      <select id="kategori" name="kategori">
+        <option value="">Seçiniz</option>
+        <option value="Seminer">Seminer</option>
+        <option value="Atölye">Atölye</option>
+        <option value="Söyleşi">Söyleşi</option>
+      </select>
+      <span class="hata-mesaji" id="kategori-hata"></span>
+
+      <label for="tarih">Tarih <span class="zorunlu">*</span></label>
+      <input type="date" id="tarih" name="tarih">
+      <span class="hata-mesaji" id="tarih-hata"></span>
+      
+      <label for="saat">Saat <span class="zorunlu">*</span></label>
+      <input type="time" id="saat" name="saat">
+      <span class="hata-mesaji" id="saat-hata"></span>
+
+      <label for="yer">Yer <span class="zorunlu">*</span></label>
+      <input type="text" id="yer" name="yer" placeholder="Örn: A Blok Konferans Salonu">
+      <span class="hata-mesaji" id="yer-hata"></span>
+      
+      <label for="kontenjan">Kontenjan</label>
+      <input type="number" id="kontenjan" name="kontenjan" min="1" max="1000">
+      <span class="hata-mesaji" id="kontenjan-hata"></span>
+
+      <label for="aciklama">Açıklama</label>
+      <textarea id="aciklama" name="aciklama" placeholder="Etkinlik detayı..."></textarea>
+      <span class="hata-mesaji" id="aciklama-hata"></span>
+
+      <button type="submit">Kaydet</button>
+    </form>
+    <div id="form-mesaj"></div>
+  </main>
+</body>
+</html>
